@@ -17,8 +17,8 @@ public class LetterCombinationsOfPhoneNumberTest {
     }
     @Test
     public void testLetterCombinations2() {
-        List<String> expect = Arrays.asList("d","e","f");
-        assertEquals(expect, LetterCombinationsOfPhoneNumber.letterCombinations("3"));
+        List<String> expect = Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf");
+        assertEquals(expect, LetterCombinationsOfPhoneNumber.letterCombinations("23"));
     }
 
 }
