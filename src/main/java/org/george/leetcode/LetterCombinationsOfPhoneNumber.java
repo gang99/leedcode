@@ -13,8 +13,15 @@ public class LetterCombinationsOfPhoneNumber {
         for(int i=0;i<digits.length();i++) {
             String[] s = ALPHA[Character.getNumericValue(numbers[i])-2];
             for(String a : s) {
-                letters.add(a);
-                System.out.println(a);
+                if(i==0) {
+                    letters.add(a);
+                } else {
+                    List<String> list = (List<String>) ((ArrayList<String>) letters).clone();
+                    letters.clear();
+                    for (String letter : list) {
+                        letters.add(letter + a);
+                    }
+                }
             }
         }
         return letters;
