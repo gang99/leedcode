@@ -21,6 +21,6 @@ public class ContainerWithMostWaterTest {
     }
     @Test
     public void testMaxArea4() {
-        assertEquals(15, ContainerWithMostWater.maxArea(new int[]{1, 2, 1, 6, 4, 5}));
+        assertEquals(10, ContainerWithMostWater.maxArea(new int[]{1, 2, 1, 6, 4, 5}));
     }
 }
