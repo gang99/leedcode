@@ -8,19 +8,22 @@ public class ContainerWithMostWater {
         int leftHeight = 0;
         for(int i=0;i<height.length;i++) {
             left[i] = leftHeight;
-            if(left[i] > leftHeight) {
-                leftHeight = left[i];
+            if(height[i] > leftHeight) {
+                leftHeight = height[i];
             }
         }
-        int rightHeight = 0;
+        int rightHeight = height[height.length-1];
         for(int i=height.length-1;i>-1;i--) {
             right[i] = rightHeight;
-            if(right[i] > rightHeight) {
-                rightHeight = right[i];
+            if(height[i] > rightHeight) {
+                rightHeight = height[i];
             }
         }
-        for(int i=1;i<height.length-1;i++) {
-            max = max + Math.abs(Math.min(left[i], right[i]) - height[i]);
+        for(int i=0;i<height.length;i++) {
+            System.out.println(left[i] + ", " + height[i] + ", " + right[i]);
+        }
+        for(int i=1;i<height.length;i++) {
+            max = max + Math.min(left[i], right[i]);
         }
         return max;
     }
