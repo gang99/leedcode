@@ -1,3 +1,5 @@
+package org.george.leetcode;
+
 import org.george.leetcode.ThreeSum;
 import org.george.leetcode.TowSum;
 import org.junit.Test;
