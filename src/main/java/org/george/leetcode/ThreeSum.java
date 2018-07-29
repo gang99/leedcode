@@ -4,30 +4,25 @@ import java.util.*;
 
 
 public class ThreeSum {
-    public static List<List<Integer>> threeSum(Integer[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(nums, Comparator.naturalOrder());
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] < 0) {
-                int next = nums.length - 1;
-                if(nums[i] + nums[next] > 0) {
-                    int nextTwo = i + 1;
-                    int sum = nums[i] + nums[next] + nums[nextTwo];
-                    if(sum == 0) {
-                        List<Integer> one = new ArrayList<>();
-                        one.add(nums[i]);
-                        one.add(nums[next]);
-                        one.add(nums[nextTwo]);
-                    } if(sum > 0) {
-                        next--;
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length-2; i++) {
+            if (i == 0 || (i > 0 && nums[i] != nums[i-1])) {
+                int lo = i + 1, hi = nums.length - 1, remains = 0 - nums[i];
+                while (lo < hi && remains >= 0) {
+                    int sum = nums[lo] + nums[hi];
+                    if (sum == remains) {
+                        result.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
+                        while (lo < hi && nums[hi] == nums[hi - 1]) hi--;
+                        lo++;
+                        hi--;
+                    } else if (sum < remains) {
+                        lo++;
                     } else {
-
+                        hi--;
                     }
-                } else {
-
                 }
-            } else {
-                break;
             }
         }
         return result;

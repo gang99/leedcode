@@ -15,9 +15,17 @@ public class ThreeSumTest {
         List<Integer> one = Arrays.asList(-1, 0, 1);
         List<Integer> two = Arrays.asList(-1, -1, 2);
         List<List<Integer>> expect = new ArrayList<>();
-        expect.add(one);
         expect.add(two);
-        assertEquals(expect, ThreeSum.threeSum(new Integer[]{-1, 0, 1, 2, -1, -4}));
+        expect.add(one);
+        assertEquals(expect, ThreeSum.threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+    }
+
+    @Test
+    public void test2() {
+        List<Integer> one = Arrays.asList(0, 0, 0);
+        List<List<Integer>> expect = new ArrayList<>();
+        expect.add(one);
+        assertEquals(expect, ThreeSum.threeSum(new int[]{0, 0, 0}));
     }
 
 }
